@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontiers in ocean modelling</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- This is template for http://remarkjs.com/ by Ole Petter Bang -->
+    <!-- CSS modifcations by J. M. Lilly-->
+    <!-- Adapted by J. Le Sommer-->
+      
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      } 
+ 
+      .remark-slide-content h1 { font-size: 1.6em; color:#606060;font-weight: bold;letter-spacing:0.05em;margin-top:0em}
+      .remark-slide-content h2 { font-size: 1.4em;color:#606060;font-weight: bold;letter-spacing:0.05em;margin-top:0em}
+      .remark-slide-content  h3 { font-size: 1.2em;color:#606060;font-weight: bold;letter-spacing:0.05em;margin-top:0em}
+      .remark-slide-content p,ol,ul { font-size: 1.0em; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-fading { z-index: 9; } 
+        
+      /* Thanks to http://www.partage-it.com/animez-vos-presentations-remark-js/  (in French) */
+      .remark-slide-container {transition: opacity 0.5s ease-out;opacity: 0;}
+      .remark-visible {transition: opacity 0.5s ease-out;opacity: 1;}
+        
+      /* Two-column layout */
+      .left-column {
+        width: 50%;
+        float: left;
+      }
+      .right-column {
+        width: 49%;
+        float: right;
+        padding-top: 0em;
+        margin-top: 0em;
+        text-align: left;
+      }    
+      .footnote {  
+        position:absolute;
+        bottom: 1em;
+        left: 14em;
+        font-size: 0.7em;
+       }
+        
+      /* Some special classes */
+      .title {font-size: 2.2em; color:#606060;font-weight:bold;letter-spacing:0.05em}
+      .subtitle {font-size: 1.4em}
+      .author {font-size: 1.2em; color:#606060;font-weight:bold;letter-spacing:0.02em}  
+      .coauthor {font-size: 1.0em; color:#606060;font-weight:bold;letter-spacing:0.02em}  
+      .institution {font-size: 1.0em;}
+      .date {font-size: 1.0em;font-style: italic}
+    
+      .cite {font-size: 0.8em; color:#33AA99;font-style: italic}
+      .strike {color:salmon;text-decoration:line-through}
+        
+      /*Set color scheme for links.*/    
+      a {text-decoration: none; color: #666666;text-align:center; width: 24%}
+      /*Setting link properties is particular, do not change order below*/   
+      a:visited {color:#666666}
+      a:hover {color:#33AA99}  
+      a:active, a#active {color:#FF9700;} 
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+.title[New frontiers in ocean circulation modelling]     
+&nbsp;  
+.subtitle[Lectures for GODAE OceanView internationnal school]  
+&nbsp;  
+&nbsp;
+&nbsp;              
+&nbsp;              
+&nbsp;              
+.author[[Julien Le Sommer](http://lesommer.github.io/)]  
+.institution[Institut des Géosciences de l'Environnement, CNRS, Grenoble, France]      
+&nbsp;  
+[julien.lesommer@univ-grenoble-alpes.fr](mailto:julien.lesommer@univ-grenoble-alpes.fr)
+&nbsp;
+&nbsp;
+
+.date[October, 2017]   
+&nbsp;          
+&nbsp;          
+
+---
+class: left
+#  Outline of the lectures   
+
+--
+## Lecture #1 : Ocean circulations models : scope, usage and development.
+
+### - Thursday: 10:00-11:30, room blabla
+
+## Lecture #2 : Towards multi-resolution, multiphysics ocean circulation models
+
+### - Saturday: 10:00-11:30, room blabla
+
+## Lecture #3 : Towards data-driven, probabilistics ocean circulation models
+
+### - Saturday: 2:00pm-3:30pm, room blabla
+
+---
+class: left
+# Textbooks and references:
+
+### - Griffies, S., 2004. Fundamentals of Ocean Climate Models. Princeton University Press.
+### - Griffies, S.M., Adcroft, A.J., 2008. Formulating the equations of ocean models, in: Hecht, M.W., Hasumi, H. (Eds.), Geophysical Monograph Series. American Geophysical Union, Washington, D. C., pp. 281–317.
+### - Lauritzen, P.H., Jablonowski, C., Taylor, M., 2011. Numerical techniques for global atmospheric models. Springer.
+### - Haidvogel, D.B., Beckmann, A., 1999. Numerical Ocean Circulation Modeling. World Scientific.
+
+---
+class: left
+## Lecture 1 : Ocean circulations models : scope, usage and development.
+
+
+--
+### topics covered
+
+--
+ - brief history of ocean circulation models
+ 
+--
+
+ - landscape of ocean circulation models.
+ 
+--
+
+ - range of usages of ocean circulation models
+ 
+--
+
+ - physical hypotheses and governing equations
+ 
+--
+
+ - boundaries, interfaces and forcings
+ 
+--
+
+ - vertical and horizontal disctetization
+ 
+--
+
+ - physically based subgrid closures
+ 
+--
+
+---
+class: center
+#  Example figure
+--
+        
+<img style="width:80%"  src="../figures/stoch_bio.png" >
+
+Here is a figure.
+        
+       
+
+---
+class: center
+## Example animation
+        
+<video preload="auto" width="90%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/SSTPACIF_ORCA025-G70_1958-2003_small.mov" type="video/mp4" /></video>
+
+Here is a video.
+
+---
+class: left
+##  Example equations?
+
+with latex : 
+ - inline mode `$\mathbf{u}$ `:
+ - display mode :            
+`$$\Gamma(t)=  \pi \, \Im\left\{ \mathbf{x}_+^H(t) \, \frac{\mathrm{d}}{\mathrm{d} t}\mathbf{x}_+(t)\right\}$$`
+
+You can just write in LaTeX, with minor modifications for specifying in-line or full-line equations.  Also, in Remark, the equations are surrounded by backquotes, as you see in the source.
+        
+     
+
+
+
+
+   </textarea>
+    <!-- This is the link to the local copy of Remark -->
+    <script src="../javascript/remark-latest.min.js" type="text/javascript"></script>
+    <!--<script src="./javascript/remark-latest.min.js" type="text/javascript"></script>-->
+    <!-- See discussion at https://github.com/gnab/remark/issues/222-->
+    <!-- You could alternately use the libraries from remote location -->
+    <!--<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>-->
+    
+    <script type="text/javascript">
+        var slideshow = remark.create({
+            navigation: {
+                click: false
+            },
+            properties: {
+                class: "center, middle"
+            },
+            countIncrementalSlides: false
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <!-- If you want to run your presentation offline, you need to download the MathJax -->
+    <!-- libraries, then uncomment the line below and comment out the one above.-->
+    <!--<script "text/javascript" src="../../../javascript/MathJax/MathJax.js?config=TeX-AMS_HTML,local/local"></script>-->
+</body>
+</html>
