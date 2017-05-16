@@ -92,29 +92,81 @@ class: center, middle
 
 ---
 class: left
-#  Outline of the lectures   
+# About me
+
+ - email : [julien.lesommer@univ-grenoble-alpes.fr](mailto:julien.lesommer@univ-grenoble-alpes.fr)
+ - MEOM group @ IGE : [http://meom-group.github.io/](http://meom-group.github.io/)
+ - web : [http://lesommer.github.io/](http://lesommer.github.io/)
+ - github : [https://github.com/lesommer/](https://github.com/lesommer/)
+
+--
+
+## Field of expertise
+
+ - ocean fine scale processes : observations, modelling and upscaling
+ - modelling : representation in ocean circulation models
+ - upscaling : impact of fine scales on oceans' climatic functions
+ - in particular at high latitudes, especially in the Southern Ocean
+
+
+--
+
+## I'm involved in
+
+ - developping NEMO ocean model  
+ - SWOT Science Team
+ - CLIVAR Ocean Model Development Panel
+
+
+
+--
+
+## I'm excited about
+
+ - free software
+ - open data
+ - reproducibility
+
+---
+class: left
+#  About the course  
 
 --
 ## Lecture #1 : Ocean circulations models : scope, usage and development.
 
-### - Thursday: 10:00-11:30, room blabla
+ - Thursday: 10:00-11:30, room blabla
 
-## Lecture #2 : Towards multi-resolution, multiphysics ocean circulation models
+## Lecture #2 : Towards multi-resolution, multiphysics ocean models
 
-### - Saturday: 10:00-11:30, room blabla
+ - Saturday: 10:00-11:30, room blabla
 
-## Lecture #3 : Towards data-driven, probabilistics ocean circulation models
+## Lecture #3 : Towards data-driven, probabilistics ocean  models
 
-### - Saturday: 2:00pm-3:30pm, room blabla
+ - Saturday: 2:00pm-3:30pm, room blabla
+
+&nbsp;
+ 
+
+--
+## Slides of the lectures : 
+ [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
+
+## Book chapter : 
+ [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
 
 ---
 class: left
-# Textbooks and references:
+# Textbooks :
 
-### - Griffies, S., 2004. Fundamentals of Ocean Climate Models. Princeton University Press.
-### - Griffies, S.M., Adcroft, A.J., 2008. Formulating the equations of ocean models, in: Hecht, M.W., Hasumi, H. (Eds.), Geophysical Monograph Series. American Geophysical Union, Washington, D. C., pp. 281–317.
-### - Lauritzen, P.H., Jablonowski, C., Taylor, M., 2011. Numerical techniques for global atmospheric models. Springer.
-### - Haidvogel, D.B., Beckmann, A., 1999. Numerical Ocean Circulation Modeling. World Scientific.
+ - Griffies, S., 2004. Fundamentals of Ocean Climate Models. Princeton University Press.
+
+ - Lauritzen, P.H., Jablonowski, C., Taylor, M., 2011. Numerical techniques for global atmospheric models. Springer.
+
+ - Haidvogel, D.B., Beckmann, A., 1999. Numerical Ocean Circulation Modeling. World Scientific.
+
+# References
+ 
+ - Griffies, S.M., Adcroft, A.J., 2008. Formulating the equations of ocean models, in: Hecht, M.W., Hasumi, H. (Eds.), Geophysical Monograph Series. American Geophysical Union, Washington, D. C., pp. 281–317.
 
 ---
 class: left
@@ -152,6 +204,24 @@ class: left
  - physically based subgrid closures
  
 --
+---
+class: left,middle 
+## Outline of lecture 1 
+
+
+
+1. **History, usage and scope** of ocean circulation models 
+
+1. **Physical formulation** of ocean circulation models
+
+1. **Discrete formulation** of ocean circulation models
+--
+
+---
+class: center, middle
+
+.subtitle[#1. Ocean circulation models : **history, usage and scope**]
+&nbsp;
 
 ---
 class: center
@@ -164,17 +234,28 @@ Here is a figure.
         
        
 
+
+---
+class: center
+#  Example figure
+--
+
+<img style="width:90%"  src="../figures/merged.001.jpg" >
+
+Here is a figure.
+
 ---
 class: center
 ## Example animation
-        
+
+
 <video preload="auto" width="90%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/SSTPACIF_ORCA025-G70_1958-2003_small.mov" type="video/mp4" /></video>
 
 Here is a video.
 
 ---
 class: left
-##  Example equations?
+##  Example equations
 
 with latex : 
  - inline mode `$\mathbf{u}$ `:
