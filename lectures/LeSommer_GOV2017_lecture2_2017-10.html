@@ -103,51 +103,6 @@ class: center, middle
 
 ---
 class: left
-# About me
-
-## Contact
-
- - email : [julien.lesommer@univ-grenoble-alpes.fr](mailto:julien.lesommer@univ-grenoble-alpes.fr)
- - MEOM group @ IGE : [http://meom-group.github.io/](http://meom-group.github.io/)
- - web : [http://lesommer.github.io/](http://lesommer.github.io/)
- - github : [https://github.com/lesommer/](https://github.com/lesommer/)
-
-
---
-&nbsp;
-
-## Field of expertise
-
- - ocean fine scale processes : observations, modelling and upscaling
- - modelling : representation of fine scales in ocean circulation models
- - upscaling : impact of fine scales on oceans' climatic functions
- - in particular at high latitudes, especially in the Southern Ocean
-
-
---
-&nbsp;
-
-.left-column[
-## I'm excited about
-
- - free software
- - open data
- - reproducibility
- - data science
-]
-
---
-.right-column[
-
-## I'm involved in
-
- - developping NEMO ocean model
- - SWOT Science Team
- - CLIVAR Ocean Model Development Panel
-
-]
----
-class: left
 #  About the course
 &nbsp;
 
@@ -176,22 +131,6 @@ Test notes
 ## Book chapter :
  [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
 
----
-class: left, middle
-# Textbooks :
-
- - Griffies, S., 2004. Fundamentals of Ocean Climate Models. Princeton University Press.
-
- - Lauritzen, P.H., Jablonowski, C., Taylor, M., 2011. Numerical techniques for global atmospheric models. Springer.
-
- - Haidvogel, D.B., Beckmann, A., 1999. Numerical Ocean Circulation Modeling. World Scientific.
-
-# References
-
- - Griffies, S.M., Adcroft, A.J., 2008. Formulating the equations of ocean models, in: Hecht, M.W., Hasumi, H. (Eds.), Geophysical Monograph Series. American Geophysical Union, Washington, D. C., pp. 281–317.
-
- - Griffies, S.M., Treguier, A.M., 2013. Ocean Circulation Models and Modeling, in: International Geophysics. Elsevier, pp. 521–551. doi:10.1016/B978-0-12-391851-2.00020-9
-
 
 ---
 class: left
@@ -199,12 +138,10 @@ class: left
 ## Ocean circulations models : scope, usage and development.
 
 
---
 &nbsp;
 
 ### Topics covered
 
---
  - brief history of ocean circulation models
 
  - landscape of ocean circulation models.
@@ -219,189 +156,80 @@ class: left
 
  - physically based subgrid closures
 
---
+
+---
+class: left
+# Lecture #2 :
+## Towards multi-resolution, multiphysics ocean circulation models
+
+
+ ### Topics covered
+
+
+  - resolved physical processes, grid resolution, model precision and computational cost
+
+  - interfaces of ocean circulation models with other physical models : surface wave models, atmospheric models, non-hydrostatic models, lagrangian transport models, coastal models
+
+  - approaches to multiphysics : physical parameterizations, superparameterizations and coupling
+
+  - rationale of coupling ocean circulation models with surface waves models
+
+  - benefits and research questions on the coupling between ocean circulation models and atmospheric models
+
+  - approaches to multi-resolution : unstructured grids versus block structured grids, numerical issues associated with local grid refinements, time discretizations
+
+
+
 ---
 class: left,middle
-## Outline of Lecture #1
+## Outline of Lecture #2
 
 
 
-## Part 1. **History, usage and scope** of ocean circulation models
+## Part 1. Some basic concepts
 
-## Part 2. **Physical formulation** of ocean circulation models
+## Part 2. ??
 
-## Part 3. **Discrete formulation** of ocean circulation models
+## Part 3. ??
 --
 
 ---
 class: center, middle
 
 # Part 1.
-# Ocean circulation models : history, usage and scope
+# Basic concepts
 
 ---
 class: center
-#  Scope of ocean circulation models
+#  Range of physical processes
 
 <img style="width:90%"  src="../figures/Griffies-Treguier-fig5.1.1.png" >
 
 Here is a figure.
 
-
----
-class: center, middle
-
-# Part 2.
-# Ocean circulation models : Physical formulation
-
-
----
-class: left
-#  Primitive equations
-
- * spherical earth approximation
- * thin-shell approximation
- * turbulent closure hypothesis
- * Boussinesq hypothesis
- * Hydrostatic hypothesis
- * Incompressibility hypothesis
-
----
-class: left
-#  Primitive equations
---
-
-### horizontal momentum equation
-
-`$$
-\frac{\partial \mathbf{U}_h}{\partial t } = -
-[(\nabla \times \mathbf{U} ) \times \mathbf{U}+ \frac{1}{2} \nabla (\mathbf{U}^2)]_h -
-f \,\mathbf{k}\times \mathbf{U}_h-
-\frac{1}{\rho_0} \, \nabla_h p +
-\mathbf{D}^{\mathbf{U}} +
-\mathbf{F}^{\mathbf{U}}$$`
---
-
-### hydrostatic equation
-`$$
-\frac{\partial p}{\partial z } = - \rho\, g$$`
-
---
-
-### incompressibility condition
-`$$
-\nabla \cdot \mathbf{U} = 0$$`
-
---
-
-### conservation of heat
-`$$
-\frac{\partial T}{\partial t } = -
-\nabla \cdot (T \mathbf{U}) +
-D^T +
-F^T$$`
-
---
-
-### conservation of salinity
-`$$
-\frac{\partial S}{\partial t } = -
-\nabla \cdot (S \mathbf{U}) +
-D^S +
-F^S$$`
-
-
-
----
-class: center, middle
-
-# Part 3.
-# Ocean circulation models : Discrete formulation
-
-
-
 ---
 class: center
-#  Discretization
+#  The notion of resolved physics
 
-<img style="width:90%"  src="../figures/Griffies-Treguier-fig5.1.2.png" >
 
 Here is a figure.
 
-
----
-class: center, middle
-<img style="width:100%"  src="../figures/space-disc.png" >
-
-
-
----
-class: center, middle
-<img style="width:100%"  src="../figures/time-disc.png" >
-
-
-
 ---
 class: center
-#  Impact of model resolution
+#  The notion of effective resolution
 
-<img style="width:60%"  src="../figures/Griffies-Treguier-fig5.1.4.png" >
-
-Here is a figure.
-
-
----
-class: center, middle
-
-# Summary of Lecture #1
-
-
----
-class: left, middle
-
-## Lecture #1 : Ocean circulations models : scope, usage and development.
-
-
- - blablabla
-
- - bla et bla
-
-
----
-class: center, middle
-
-# Aditionnal material
-
-
----
-class: center
-#  Example figure
---
-
-<img style="width:90%"  src="../figures/merged.001.jpg" >
 
 Here is a figure.
 
 
 ---
 class: center
-## Example animation
+<img style="width:90%"  src="../figures/FoxKemper.png" >
 
-
-<video preload="auto" width="90%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/SSTPACIF_ORCA025-G70_1958-2003_small.mov" type="video/mp4" /></video>
-
-Here is a video.
 
 ---
-class: center
-## For Lecture 2.
-
-
- - the notion of resolved physics
-
- - the notion of effective resolution
-
-
+class: center, middle
+<img style="width:100%"  src="../figures/mesh-refinements.png" >
 
 
 
