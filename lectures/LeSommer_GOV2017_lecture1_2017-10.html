@@ -69,19 +69,24 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle
+
+class: middle,center
+<!---
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+--->
+
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+
+&nbsp;
+
 
 .title[New frontiers in ocean circulation modelling]
 &nbsp;
 
-.subtitle[Lectures for GODAE OceanView internationnal school]
-&nbsp;
-
 &nbsp;
 &nbsp;
 &nbsp;
 
-&nbsp;
 .author[[Julien Le Sommer](http://lesommer.github.io/)]
 
 .institution[Institut des Géosciences de l'Environnement, CNRS, Grenoble, France]
@@ -91,7 +96,6 @@ class: center, middle
 &nbsp;
 &nbsp;
 
-.date[October, 2017]
 &nbsp;
 &nbsp;
 &nbsp;
@@ -101,9 +105,14 @@ class: center, middle
 <img src="../figures/logoCNRS.png" width="10%" halign="left" />
 --->
 
+
+<img src="../figures/affiliations-logo.png" width="30%" valign="left" />
+
+
 ---
 class: left
 # About me
+
 
 ## Contact
 
@@ -112,69 +121,64 @@ class: left
  - web : [http://lesommer.github.io/](http://lesommer.github.io/)
  - github : [https://github.com/lesommer/](https://github.com/lesommer/)
 
-
 --
-&nbsp;
+
+
 
 ## Field of expertise
 
- - ocean fine scale processes : observations, modelling and upscaling
- - modelling : representation of fine scales in ocean circulation models
- - upscaling : impact of fine scales on oceans' climatic functions
- - in particular at high latitudes, especially in the Southern Ocean
+ - **ocean fine scale processes** : observations, modelling and scale interactions
+ - *modelling* : representation of fine scales in **ocean circulation models**
+ - *scale interactions* : impact of fine scales on **oceans' climatic functions**
+ - mostly at **mid and high latitudes**, especially in the Southern Ocean
+
 
 
 --
-&nbsp;
+
+.right-column[
+## I'm excited about
+ - open source / open data / reproducibility
+ - how to deal with the flow of data in geoscience
+]
+
 
 .left-column[
-## I'm excited about
-
- - free software
- - open data
- - reproducibility
- - data science
-]
-
---
-.right-column[
-
 ## I'm involved in
 
- - developping NEMO ocean model
- - SWOT Science Team
- - CLIVAR Ocean Model Development Panel
-
+ - developping **NEMO** ocean model
+ - **SWOT** mission Science Team
+ - **CLIVAR** Ocean Model Devt Panel
 ]
+
 ---
 class: left
 #  About the course
 &nbsp;
 
 --
-## Lecture #1 : Ocean circulations models : scope, usage and development.
+## Lecture #1 : Ocean circulations models : scope, usage and fundamentals.
 
- - Thursday: 10:00-11:30, room blabla
+ - Thursday: 11:45-12:30
 
-## Lecture #2 : Towards multi-resolution, multiphysics ocean models
+## Lecture #2 : Representation of physical processes ocean circulation models
 
- - Saturday: 10:00-11:30, room blabla
+ - Saturday: 9:45-10:30 
 
-## Lecture #3 : Towards data-driven, probabilistics ocean  models
+## Lecture #3 : Towards data-driven, probabilistic ocean circulation models
 
- - Saturday: 2:00pm-3:30pm, room blabla
+ - Saturday: 11:45-12:30 (*change in program*)
 
 &nbsp;
 
-???
-Test notes
+
 
 --
 ## Slides of the lectures :
- [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
+also here : [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
 
-## Book chapter :
- [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
+## Book chapter (with Eric Chassignet):
+also here : [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
 
 ---
 class: left, middle
@@ -186,17 +190,19 @@ class: left, middle
 
  - Haidvogel, D.B., Beckmann, A., 1999. Numerical Ocean Circulation Modeling. World Scientific.
 
-# References
+# Review articles
 
  - Griffies, S.M., Adcroft, A.J., 2008. Formulating the equations of ocean models, in: Hecht, M.W., Hasumi, H. (Eds.), Geophysical Monograph Series. American Geophysical Union, Washington, D. C., pp. 281–317.
 
  - Griffies, S.M., Treguier, A.M., 2013. Ocean Circulation Models and Modeling, in: International Geophysics. Elsevier, pp. 521–551. doi:10.1016/B978-0-12-391851-2.00020-9
 
+ - Griffies, S.M., 2009. Science of Ocean Climate Models. in: Encyclopedia of Ocean Sciences (Second Edition)
+
 
 ---
 class: left
 # Lecture #1 :
-## Ocean circulations models : scope, usage and development.
+## Ocean circulations models : scope, usage and fundamentals.
 
 
 --
@@ -205,7 +211,7 @@ class: left
 ### Topics covered
 
 --
- - brief history of ocean circulation models
+ - definition and scope of ocean circulation models
 
  - landscape of ocean circulation models.
 
@@ -215,56 +221,361 @@ class: left
 
  - boundaries, interfaces and forcings
 
- - vertical and horizontal disctetization
+ - discretizing the primitive equations
 
- - physically based subgrid closures
+ - illustrations of current status/skill
+
 
 --
 ---
-class: left,middle
+class: left
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+
 ## Outline of Lecture #1
 
 
+## Part 1. **Scope and applications** of ocean circulation models
 
-## Part 1. **History, usage and scope** of ocean circulation models
+--
 
 ## Part 2. **Physical formulation** of ocean circulation models
 
+--
+
 ## Part 3. **Discrete formulation** of ocean circulation models
+
+--
+
+## Part 4. **Boundary conditions** of ocean circulation models
+
+--
+
+## Part 5. Current skills of ocean circulation models 
 --
 
 ---
 class: center, middle
 
 # Part 1.
-# Ocean circulation models : history, usage and scope
+# **Scope and applications** of ocean circulation models
+
+---
+class: left
+#  Scope of ocean circulation models
+
+## Ocean circulation modelling ?
+
+--
+
+ -  a branch of **numerical modelling** focusing on the representation of the physical mechanisms governing the **evolution of ocean physical properties**, namely $T, S, u, v, w$  
 
 ---
 class: center
-#  Scope of ocean circulation models
+#  Variety of physical processes affecting ocean properties 
 
 <img style="width:90%"  src="../figures/Griffies-Treguier-fig5.1.1.png" >
+---
+class: center
+#  Variety of physical processes affecting ocean properties 
 
-Here is a figure.
+<img style="width:75%"  src="../figures/Griffies-Treguier-fig5.1.1.png" >
+
+
+Ocean circulation modelling actually requires a good **understanding of a large range of physical processes**. 
+
+--
+
+**Physical understanding is pivotal to ocean circulation modelling.**
+---
+class: center
+#  Space and time scales of major ocean physical processes
+
+<img style="width:80%"  src="../figures/scales-ocean-processes.jpg" >
+---
+class: center
+#  Space and time scales of major ocean physical processes
+
+<img style="width:50%"  src="../figures/scales-ocean-processes.jpg" >
+
+
+Resolving space into regions of dimension $10^{-3}$m for an ocean with volume roughly $1.3 \,10^{18}$ m$^3$ requires $1.3\, 10^{27}$ discrete grid cells (roughly $10^4$ times larger than Avogadro’s number!) (*Griffies*).
+
+--
+
+**a truncated description of the ocean state is required and will be required in the foreseable future.**
+
+---
+class: left
+#  Scope of ocean circulation models
+
+## Ocean circulation modelling ?
+
+
+ -  a branch of **numerical modelling** focusing on the representation of the physical mechanisms governing the **evolution of ocean physical properties**, namely $T, S, u, v, w$  
+--
+&nbsp;
+
+ 	-  over spatial scales ranging from the **global** scale to **kilometric** scales 
+--
+&nbsp;
+
+ 	-  over time scales ranging from **hours to decades** (and more). 
+
+
+--
+
+ - the need to account for **cross-scale interactions** (e.g. through subgrid closure) and **uncertainty** is consubstancial to ocean circulaton modelling
+ 
+--
+&nbsp;
+
+
+&nbsp;
+
+ -  a tool of choice for building a **physical understanding** of ocean physical processes. 
+
+--
+
+ - this is why ocean circulation models should be applied both
+--
+&nbsp;
+
+  - in **realistic settings** at global or regional scale
+--
+&nbsp;
+
+  - or in idealized settings for **process studies**.
+
+
+---
+class: left
+#  Ocean circulation models 
+
+## in practice ocean model are 
+
+--
+
+ - providing **approximate numerical solutions** to a set of PDEs describing ocean dynamics; 
+ 
+--
+ 
+ - based on a **approximated version of Navier-Stokes equations** adapted to our regimes of interest;
+
+--
+
+ - given a set of **initial and boundary conditions**.
+ 
+
+--
+
+ - The first attempt to formulate and solve this problem : pioneering work of *Bryan (1969)*. 
+
+--
+
+
+## even more practically
+
+--
+
+ 
+ - ocean circulation models assemble **20 000 to 200 000 lines of codes**, usually written in FORTRAN or C; 
+
+--
+
+ - ocean circulation models are run on **supercomputers in HPC centers**; 
+
+--
+ 
+ - each code is the result of **5 to 10 years of development**; 
+
+--
+
+ - developping/maintaining/running ocean circulation models requires collaborations among **different people with different skills**.
+ 
+ 
+ 
+ 
+ 
+---
+class: left
+# The landscape of ocean circulation models
+
+##  (Temptative) list of major ocean models (in 2017)
+
+listing ocean circulation models that are **currently developped / supported / used** with published applications at **basin to global scale**.
+
+--
+
+.left-column[
+- HYCOM (*US*)
+
+- MITgcm (*US*)
+
+- MOM (*US*)
+
+- POP (*US*)
+
+- MPAS (*US*)
+
+- NCOM (*US*)
+  
+- ROMS (*US/Fr*, $\times \,3$)
+]
+
+.right-column[
+- NEMO (*EU*)
+
+- MPIOM (*Germany*)
+
+- FESOM (*Germany*)
+
+- OFES (*Japan*)
+
+- MRI.com(*Japan*)
+
+- LICOM (*China*)
+
+- ...
+]
+
+--
+
+&nbsp;
+
+&nbsp;
+
+.center[
+A fair **variety of ocean circulation models** with different horizontal grids, vertical coordinates and subgrid closures.
+]
+
+.center[
+most of them (if not all) are freely available and distributed under **open source licences**.
+]
+---
+class: left
+#  Range of applications of ocean circulation models 
+
+&nbsp;
+
+--
+
+- Ocean circulation models may be used standalone (*forced simulation*) for **hindcasting ocean circulation**; 
+
+--
+
+- when integrated in a data assimilation framework, they may be used for producing **short range ocean forecasts and ocean reanalysis** ; 
+
+--
+
+- coupled to atmospheric circulation models, they may be used for **seasonal to decadal forecasts**; 
+
+--
+
+- fully integrated in Earth System Models, they are used for **climate modelling and projection**. 
+
+--
+
+- Ocean scientists also simply use ocean circulation models as experiment tools of choice for improving our **mechanistic understanding of the ocean**.
+
+--
+&nbsp;
+
+&nbsp;
+
+.center[
+The previously listed ocean circulation models all have preferential **target applications** but the general trends is towards **seamless** modelling.
+]
+---
+class: left
+#  Ocean circulation models and operational oceanography 
+
+--
+
+**1. Ocean modelling is a major component of operational oceanography**. 
+
+--
+
+ - Ocean circulation models are a building block of global and regional **operational oceanography forecasting systems**. 
+ 
+--
+
+ - Ocean circulation models are used in conjonction with data assimilation for **extrapolating both in space and in time** the available satellite and in-situ oceanic observations.
+
+--
+
+ - Numerical tools based on first principle physics used for building a **physically consistant estimate of the ocean state and of its evolution**. 
+
+--
+
+ - Ocean models are also used at various stages for **preparing future oceanic observations** (*Observing System Experiments*)
+
+--
+
+**2. Ocean circulation modelling and ocean satellite remote sensing are intrinsically related**. 
+
+--
+
+ - Ocean circulation modelling and ocean satellite remote sensing share **a common history** over the past 30years. 
+
+--
+
+ - The **resolution of global ocean model** generally follows the evolution of satellite altimetry (altimetry  provides a target for advancing models). 
+
+--
+
+ - Ocean circulation models are used for **preparing satellite missions**.
+
 
 
 ---
 class: center, middle
 
 # Part 2.
-# Ocean circulation models : Physical formulation
+# Ocean circulation models : **Physical formulation** 
+
+&nbsp;
 
 
 ---
 class: left
-#  Primitive equations
+#  Approximations to the Navier Stokes equation
 
- * spherical earth approximation
- * thin-shell approximation
- * turbulent closure hypothesis
- * Boussinesq hypothesis
- * Hydrostatic hypothesis
- * Incompressibility hypothesis
+--
+
+ - **Spherical earth approximation** : 
+ a convenience approximation, note that models may use variable $g$.
+ 
+--
+ 
+ - **Thin-shell approximation** :
+allows to neglect variations of the local rotation rate with respect to depth, which simplifies the treatment of the Coriolis force. 
+
+--
+
+ - **Turbulent closure hypothesis** : 
+assumes that the nonlinear terms involving correlations of variables at small scale can be fully prescribed from knowledge of the large scales. 
+
+--
+
+ - **Boussinesq hypothesis** : neglecting variation of relative density in the momentum equation. But some models have actually relaxed this approximation. 
+
+--
+
+ - **Hydrostatic hypothesis** : 
+allows to neglect vertical acceleration; $w$ becomes a diagnostic variable. But some models are relaxing this hypothesis.
+
+--
+
+ -  **Incompressibility hypothesis** : 
+assuming that sound waves propagate at infinite celerity, this allows to use longer time steps. 
+
 
 ---
 class: left
@@ -297,7 +608,7 @@ f \,\mathbf{k}\times \mathbf{U}_h-
 ### conservation of heat
 `$$
 \frac{\partial T}{\partial t } = -
-\nabla \cdot (T \mathbf{U}) +
+\nabla \cdot (T \mathbf{U}) + 
 D^T +
 F^T$$`
 
@@ -311,6 +622,70 @@ D^S +
 F^S$$`
 
 
+---
+class: left
+#  Additional equations
+--
+
+
+### Equation of state of sea water
+
+`$$
+\rho = \rho(T, S, p)
+$$`
+with $T$ is conservative temperature and $S$ is absolute salinity (TEOS10).
+
+--
+.center[
+<img style="width:60%"  src="../figures/rIoFu.png" >
+]
+
+--
+.center[
+**The equation of state is a strongly nonlinear at cold temperature and high pressure.**]
+---
+class: left
+#  Additional equations
+--
+
+
+### Surface boundary conditions 
+
+ - kinematic condition : 
+`$$
+\frac{\partial \eta}{\partial t} + \mathbf{U}_h\cdot\nabla \eta = w_{|surf} + E - P 
+$$`
+
+(*most ocean circulation models no longer use the rigid lid approximation*)
+
+--
+ - pressure condition : 
+`$$
+p_{|surf} = p_{atm} (x,y,t)
+$$`
+
+--
+
+
+
+- air-sea fluxes of freshwater and heat:
+
+`$$
+K_v \, \frac{\partial T}{\partial z}_{|surf} = -\rho C_p Q 
+\qquad 
+K_v \, \frac{\partial S}{\partial z}_{|surf} = 0
+$$`
+
+--
+
+
+ - air-sea fluxes of momentum
+
+`$$
+A_v \frac{\partial \mathbf{U}_h}{\partial z}_{|surf} = \frac{1}{\rho_0} (\tau_x, \tau_y)
+$$`
+
+
 
 ---
 class: center, middle
@@ -322,84 +697,410 @@ class: center, middle
 
 ---
 class: center
-#  Discretization
+#  Discretizing the primitive eqations
 
-<img style="width:90%"  src="../figures/Griffies-Treguier-fig5.1.2.png" >
+<img style="width:80%"  src="../figures/Griffies-Treguier-fig5.1.2.png" >
 
-Here is a figure.
+**Basic idea is to cut the ocean volume into small boxes that exchange fluxes at their boundaries.**
+
+---
+class: left
+
+# Spatial discretization
+
+first, you need a grid, so that you can approximate the continuous variables in a discrete space : 
+
+--
+ 
+<img style="width:100%"  src="../figures/spatial-discretization.png" >
+
+--
+
+.center[
+**Note that there are several types of grids and several approaches for defining discrete approximations of continuous variables**. 
+]
+---
+class: left
+
+
+## Temporal discretization
+
+second, you need an approach for approximating the time evolution of your variables from your PDEs : 
+
+--
+
+&nbsp;
+
+<img style="width:100%"  src="../figures/time-discretization1.png" >
+
+---
+class: left
+
+## Temporal discretization
+
+
+second, you need an approach for approximating the time evolution of your variables from your PDEs : 
+
+
+<img style="width:100%"  src="../figures/time-discretization2.png" >
+
+--
+
+in practice, 
+
+`$$
+\phi(x_i,t^{n+1}) = \phi_i^{n+1} + \mbox{error terms } E(\Delta x, \Delta t)
+$$`
+
+
+---
+class: left
+# Numerical discretization schemes
+
+.center[
+**How to guarantee that we get as accurate an answer as we wish, as long as we discretize our function finely enough in space and in time ?**] 
+--
+&nbsp;
+.left[
+Numerical schemes should meet $3$ conditions (Haidvogel and Beckmann):] 
+--
+&nbsp;
+
+##  Convergence 
+
+An approximate difference equation (ADE) is **convergent** if the solution of the ADE approaches hat of the partial differencial equation (PDE) as $\Delta x,\Delta t \rightarrow 0$.
+
+--
+
+## Consistency 
+An approximate difference equation is **consistent** if the ADE approaches the partial differential equation as  $(\Delta x,\Delta t) \rightarrow 0$.
+
+--
+
+## Stability 
+
+An approximate difference equation is **stable** if it has an upper limit (as $t\rightarrow \infty$) to the growth of the solution (or to errors introduced by round-offs).
+
+
+
+---
+class: left
+# Numerical discretization schemes
+##  Order of accuracy of discretization schemes
+
+--
+
+assume that we are refining the spatial (or temporal) resolution of an integration
+
+`$$
+\Delta x \rightarrow \Delta x / 2
+\qquad 
+\Delta t \rightarrow \Delta t / 2
+$$`
+
+--
+
+the order of accuracy of the discretization schemes tells you about how the total error per time-step will change : 
+
+--
+ - first order schemes  : $E\rightarrow E/2$
+
+ - second order schemes  : $E\rightarrow E/4$
+
+ - third order schemes  : $E\rightarrow E/8$
+
+ - fourth order schemes  : $E\rightarrow E/16$
+
+--
+
+.left-column[
+You can get **formal mathematical proofs** of the order of accuracy of numerical schemes. 
+]
+--
+
+.right-column[
+The order of accuracy does not inform about how large is the error, but only about **how it varies with resolution**. 
+]
+--
+
+&nbsp;
+
+
+.center[**Using high orders schemes provides a good alternative to increasing resolution.**]
 
 
 ---
 class: center, middle
-<img style="width:100%"  src="../figures/space-disc.png" >
+
+# Part 4.
+#  Ocean circulation models : **Boundary forcing** 
+
+
+---
+class: left
+# Boundary forcing of ocean circulation models
+##  The ocean is a forced dissipative system
+&nbsp;
+
+ - Atmospheric **momentum and buoyancy fluxes** are predominantly responsible for **driving the ocean**’s large scale horizontal and overturning circulations.
+
+--
+
+ - Additional influences include forcing at continental boundaries from **river inflow and calving glaciers**, as well as in polar regions where **sea ice dynamics** greatly affect the surface buoyancy fluxes. 
+
+--
+
+ - Dissipation in the ocean generally occurs at the microscale, with **turbulent processes converting mechanical energy to heat**.
+ 
+--
+ 
+&nbsp;
+
+.center[
+**The boundary forcing and the mechanical energy dissipation are key to a good ocean model simulation.**  ]
 
 
 
 ---
+class: left
+# Boundary forcing of ocean circulation models
+
+##  Atmospheric forcing of ocean circulation
+&nbsp;
+
+ - Atmospheric forcing occurs over basin scales, with **timescales** set by  : 
+ 
+--
+ 
+   - the **diurnal** cycle
+ 
+--
+ 
+   - **synoptic** weather variability (days)
+ 
+--
+ 
+   - the **seasonal** cycle
+ 
+--
+ 
+   - **interannual** fluctuations (such as the NAO and ENSO). 
+
+---
+class: center
+
+# Time scales of atmospheric forcing versus ocean dynamics
+
+
+Atmospheric variability and oceanic variability are not occuring at the same space and time scale.
+
+--
+
+
+<video preload="auto" width="90%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/Curls-EC-Earth-ORCA12-T1279.mp4" type="video/mp4" /></video>
+
+*source : https://www.youtube.com/watch?v=OGc1TidI0rA*
+
+--
+
+
+**Surface fields that constrain ocean models should be used at high frequency (typically 3h)**
+
+ 
+---
+class: center
+#  Formulation of air-sea forcing in ocean models
+
+<img style="width:90%"  src="../figures/atmospheric-forcing.png" >
+
+---
+class: center
+#  Representation of high latitude freshwater forcing
+
+## Example : antarctic freshwater fluxes in ocean models
+
+<img style="width:90%"  src="../figures/glacial-freshwater.png" >
+
+--
+
+**Formulating the forcing function of ocean circulation models is a essential task that requires a lot of efforts (and crude hypotheses).**
+
+---
+class: left
+#  Caveats with air-sea forcing in ocean models
+
+&nbsp;
+
+--
+
+- **large uncertainty** in air-temperature, specific humidity and winds from reanalysis especially at high latitudes 
+
+--
+
+- atmospheric gridded products (satellite / reanalysis) are available at a **coarser spatial scale** that the most high end ocean models. 
+
+--
+
+- the **bulk formulae** are constrained by a handfull of data, mostly representative of mid-latitude oceans under quiet conditions (waves, winds)
+
+--
+
+- **missing freshwater feedback** from evaporation onto precipitation in forced models, this is why forced ocean model use surface salinity restoring. 
+
+--
+
+- **phase mismatch** between observed fields that are influenced by the *real* ocean state and the *simulated* ocean state in non-assimilated models...
+
+
+--
+
+- the **dynamical feedbacks from ocean state onto atmospheric properties** in the atmospheric boundary layer are not accounted for.
+
+---
 class: center, middle
-<img style="width:100%"  src="../figures/time-disc.png" >
+
+# Part 5.
+#  Ocean circulation models : current skills. 
+
+
+---
+class: center
+# Mesoscale permitting cean circulation models
+
+
+Surface currents in NEMO-ORCA12 (here coupled to IFS)
+
+
+<video preload="auto" width="50%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/Currents-IFS-ORCA12.mp4" type="video/mp4" /></video>
+
+*source : https://www.youtube.com/watch?v=Pl5QdYRP8qE*
+
+
+---
+class: center
+# Mesoscale permitting ocean circulation models
+&nbsp;
+
+Surface currents in ECCO2 reanalysis (MITgcm based)
+
+<video preload="auto" width="100%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/surface-currents-ECCO2.mp4" type="video/mp4" /></video>
+
+*source : https://www.youtube.com/watch?v=iORUBN8KgZE*
+---
+class: center
+# Mesoscale permitting ocean circulation models
+<img style="width:80%"  src="../figures/SSH-ORCA12.png" >
+
+--
+
+**O(10km) grid resolution models capture quantitatively SSH variance.**
+
+---
+class: center
+# Impact of model horizontal resolution
+
+<img style="width:50%"  src="../figures/Griffies-Treguier-fig5.1.4.png" >
+
+
+--
+
+**A regime transition between O(100km) and O(10km) grid resolution models due to the emergence of eddy variability.**
 
 
 
 ---
 class: center
-#  Impact of model resolution
-
-<img style="width:60%"  src="../figures/Griffies-Treguier-fig5.1.4.png" >
-
-Here is a figure.
-
-
----
-class: center, middle
-
-# Summary of Lecture #1
-
-
----
-class: left, middle
-
-## Lecture #1 : Ocean circulations models : scope, usage and development.
-
-
- - blablabla
-
- - bla et bla
-
-
----
-class: center, middle
-
-# Aditionnal material
-
-
----
-class: center
-#  Example figure
+#  Submesoscale permitting ocean circulation models
 --
 
 <img style="width:90%"  src="../figures/merged.001.jpg" >
 
-Here is a figure.
-
-
----
-class: center
-## Example animation
-
-
-<video preload="auto" width="90%" height="auto"  data-setup="{}" autoplay loop controls><source src="../videos/SSTPACIF_ORCA025-G70_1958-2003_small.mov" type="video/mp4" /></video>
-
-Here is a video.
+**Higher resolution models can describe intense fronts at submesoscales** (here downstream Kerguelen plateau). 
 
 ---
 class: center
-## For Lecture 2.
+#  Submesoscale permitting ocean circulation models 
+
+<img style="width:105%"  src="../figures/NATL60-winter.png" >
+
+--
+
+**Kilometric resolution ocean models describe high $Ro$ surface flows.**
+---
+class: center
+#  Submesoscale permitting ocean circulation models
+
+<img style="width:105%"  src="../figures/NATL60-summer.png" >
+
+--
+
+**km resolution ocean models show the seasonality of submesoscales**
+
+---
+class: center
+#  Internal waves in ocean circulation models
+
+<img style="width:105%"  src="../figures/internal-waves.png" >
+
+--
+
+**With increasing resolution, ocean circulation models are now able to represent a fraction of the internal wave spectrum.** 
+---
+class: center, middle
+
+# Wrapping-up Lecture #1
 
 
- - the notion of resolved physics
+---
+class: left
 
- - the notion of effective resolution
+# Lecture #1 
+## Ocean circulations models : scope, usage and fundamentals.
+
+*Ocean circulation models *
+
+--
+
+ - are based on **first principle physics**;
+
+--
+
+ - are used for a **wide range of applications**;
+
+--
+
+ - are a key **building block of operational oceanography**;
+
+--
+
+ - require **group effort and collaborations** over long time scales. 
+
+--
+
+*We have also learned that :* 
+
+--
+ 
+ - **subgrid closures are rate controling** components of ocean models; 
+
+--
+
+ - **numerical discretization is a key** aspect of ocean circulation modelling; 
+
+--
+
+ - besides the numerical kernel, **interfaces are also important** (forcing function, coupling interfaces, etc...)
+
+--
+
+ - ocean models are now (arguably) **able to describe mesoscale motions at global scale**;  
+
+--
+ 
+ - new frontier :  **submesoscale-permitting modelling at global scale**. 
+
+
+
 
 
 
