@@ -69,19 +69,24 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle
+
+class: middle,center
+<!---
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+--->
+
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+
+&nbsp;
+
 
 .title[New frontiers in ocean circulation modelling]
 &nbsp;
 
-.subtitle[Lectures for GODAE OceanView internationnal school]
-&nbsp;
-
 &nbsp;
 &nbsp;
 &nbsp;
 
-&nbsp;
 .author[[Julien Le Sommer](http://lesommer.github.io/)]
 
 .institution[Institut des Géosciences de l'Environnement, CNRS, Grenoble, France]
@@ -91,7 +96,6 @@ class: center, middle
 &nbsp;
 &nbsp;
 
-.date[October, 2017]
 &nbsp;
 &nbsp;
 &nbsp;
@@ -101,30 +105,34 @@ class: center, middle
 <img src="../figures/logoCNRS.png" width="10%" halign="left" />
 --->
 
+
+<img src="../figures/affiliations-logo.png" width="30%" valign="left" />
+
+
+
 ---
 class: left
-#  About the course
+#  About the lectures
 &nbsp;
 
 --
-## Lecture #1 : Ocean circulations models : scope, usage and development.
+## Lecture #1 : Ocean circulations models : scope, usage and fundamentals.
 
- - Thursday: 10:00-11:30, room blabla
+ - Thursday: 11:45-12:30
 
-## Lecture #2 : Towards multi-resolution, multiphysics ocean models
+## Lecture #2 : Representation of physical processes ocean circulation models
 
- - Saturday: 10:00-11:30, room blabla
+ - Saturday: 9:45-10:30 
 
-## Lecture #3 : Towards data-driven, probabilistics ocean  models
+## Lecture #3 : Towards data-driven, probabilistic ocean circulation models
 
- - Saturday: 2:00pm-3:30pm, room blabla
+ - Saturday: 11:45-12:30 
 
 &nbsp;
 
-???
-Test notes
 
 --
+
 ## Slides of the lectures :
  [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
 
@@ -132,51 +140,60 @@ Test notes
  [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
 
 
----
-class: left
-# Lecture #1 :
-## Ocean circulations models : scope, usage and development.
-
-
-&nbsp;
-
-### Topics covered
-
- - brief history of ocean circulation models
-
- - landscape of ocean circulation models.
-
- - range of usages of ocean circulation models
-
- - physical hypotheses and governing equations
-
- - boundaries, interfaces and forcings
-
- - vertical and horizontal disctetization
-
- - physically based subgrid closures
-
 
 ---
 class: left
-# Lecture #2 :
-## Towards multi-resolution, multiphysics ocean circulation models
+
+# Lecture #1 
+## Ocean circulations models : scope, usage and fundamentals.
+
+*Ocean circulation models *
 
 
- ### Topics covered
+ - are based on **first principle physics**;
+
+ - are used for a **wide range of applications**;
+
+ - are a key **building block of operational oceanography**;
+
+ - require **group effort and collaborations** over long time scales. 
+
+*We have also learned that :* 
+
+ - **subgrid closures are rate controling** components of ocean models; 
+
+ - **numerical discretization is a key** aspect of ocean circulation modelling; 
+
+ - besides the numerical kernel, **interfaces are also important** (forcing function, coupling interfaces, etc...)
+
+ - ocean models are now (arguably) **able to describe mesoscale motions at global scale**;  
+
+ - new frontier :  **submesoscale-permitting modelling at global scale**. 
 
 
-  - resolved physical processes, grid resolution, model precision and computational cost
+---
+class: left
 
-  - interfaces of ocean circulation models with other physical models : surface wave models, atmospheric models, non-hydrostatic models, lagrangian transport models, coastal models
+# Lecture #2
+## Representation of physical processes ocean circulation models
 
-  - approaches to multiphysics : physical parameterizations, superparameterizations and coupling
+ - ocean circulation models are **continuously increasing the range of physical processes** they account for; 
+ 
+ -  but defining objectively **what fraction of ocean variability is adequately represented** in ocean model solution is difficult; 
 
-  - rationale of coupling ocean circulation models with surface waves models
+ - the **notion of effective resolution** is a simple (simplistic ?) concept that serves as a rationale for separating resolved and unresolved scales in ocean models; 
 
-  - benefits and research questions on the coupling between ocean circulation models and atmospheric models
+ - Interaction with **computer scientist and applied mathematicians will be essential** to further increasing the range of scale resolved in ocean models (schemes, HPC, ...)
 
-  - approaches to multi-resolution : unstructured grids versus block structured grids, numerical issues associated with local grid refinements, time discretizations
+ - the design of **SGS closures is a key activity** of ocean model design but (1) this is not an easy task (2) the problem is not that well posed (average ?, LES, RANS ? ) 
+ 
+ - the **coupling with third party models** is likely to become a natural way for ocean circulation model to account for certain classes of physical processes
+
+  
+  
+
+
+
 
 
 ---
@@ -188,39 +205,595 @@ class: left
 ### Topics covered
 
 
- - the ill-posed nature of deterministic geoscienctific modelling.
+ - the **ill-posed nature of deterministic** geoscienctific modelling
 
- - illustration of basic concepts with langrangian transport models
+ - **stochastic closures** in ocean circulation models
 
- - the Bayesian framework
+ - **stochastic modelling** to deal with various sources of uncertainties
 
- - stochastic closures in ocean circulation models.
+ - **ensemble simulations** in ocean circulation modelling
 
- - ensemble simulations in ocean circulation modelling
+ - the Bayesian framework for **dealing with uncertainty in models**
 
- - data-driven development of ocean circulation models
+ - **data-driven development** of ocean circulation models
 
- - ocean modelling at the age of data science
+ - ocean modelling at the age of **data science**
 
 
 ---
-class: left,middle
+class: left
 ## Outline of Lecture #3
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 
-## Part 1. Some basic concepts
 
-## Part 2. ??
 
-## Part 3. ??
+## Part 1. Stochastic modelling in ocean circulation models
+
 --
+
+## Part 2. Uncertainty in ocean circulation modelling
+
+--
+
+## Part 3. Probabilistic ocean modeling with ensemble simulations
+
+--
+
+## Part 4. Towards data-driven ocean modelling
+
+
 
 ---
 class: center, middle
 
 # Part 1.
-# Basic concepts
+# Stochastic modelling in ocean circulation models
+
+
+
+---
+class: left
+# Beyond deterministic subgrid scales closures
+
+
+--
+
+The **SGS closure problem** :  estimating a good model $\mathcal{M} (\, \overline{\mathbf{s}}) = \mathcal{N} (\, \overline{\mathbf{s}}) - \overline{\mathcal{N}(\mathbf{s})}$. 
+
+--
+
+ - as discuused, assuming that you can **draw a local deterministic model** that is fully asserved to resolved scales of motions is very strong assumption.
+
+ - physically your are assuming that the **net result of micro-states at macro-scale** is not dependent on the micro-scales. 
+
+--
+
+but a number of recent works have started to reconsider this assumption.
+
+--
+
+ - these approaches allow the closure to be only weakly constrained by the resolved scale. 
+
+--
+
+ - a certain amont of **randomness is introduced with a stochastic procedure** to account for the possible varibility of fluxes at macroscales
+
+
+--
+
+ - Stochastic parameterizations seem in particular well suited to the representation of **the cross scale exchanges of energy and momentum** for SGS balanced turbulence (in particular energy backscatter)
+
+--
+
+ - notable improvment of Gulf stream dynamics have also been obtained through the stochastic representation of the upscaling due to the **nonlinear equation of state** 
+
+  
+---
+class: left
+#  Potential wells and marginal stability
+
+There is actually **another rationale that supports this idea of introducing random perturbation** in ocean models. 
+
+--
+
+.center[
+<img style="width:80%"  src="../figures/pot-well.png" >]
+
+
+The idea is that **perturbations could allow your system to escape from local potential wells** and therefore explore more reliably the range of possible states. 
+
+
+
+---
+class: left
+#  Range of applications of stochastic ocean modelling 
+
+Stochastic approaches are therefore not limited to the representation of subgrid processes, they have been suceesfully applied to account for : 
+
+ - the **uncertainty** in sea ice model parameters
+
+ - the **uncertainty** in biogeochemical models parameters
+
+.center[
+<img style="width:50%"  src="../figures/proba2.png" >
+]
+.right[
+Brankart et al. (2015)]
+---
+class: center, middle
+
+# Part 2.
+# Uncertainty in ocean circulation modelling
+
+
+
+---
+class: left
+#  Multiple sources of uncertainty in ocean models
+&nbsp;
+
+
+ - ocean model solutions are affected by **several sources of errors** that combine and interact. 
+
+--
+
+ - ocean model solutions are affected by **errors in their initial condition** : this is patricularly true at depth; 
+
+
+--
+
+ - ocean model solutions are affected by **errors in the forcing function** : uncertain atmospheric fields, uncertain parameter in bulk formula...
+
+--
+
+ - ocean model solutions are affected by **errors associated with subgrid closures** : closures are imperfect models, with usually weakly constrained parameters
+
+--
+
+ - ocean model solutions are affected by **the physical approximation**  use in for their continuous formulation : eg. non-traditional Coriolis terms
+
+--
+
+ - ocean model solutions are affected by **numerical discretization errors** : even high order schemes have non-zero errors, these errors cumulate in time. 
+
+--
+
+.center[
+Overall, **uncertainty is a major property of ocean circulation models** that physicist tend to neglect to often. 
+]
+
+---
+class: left
+#  The complex nature of numerical discretization errors
+
+
+&nbsp;
+
+ - numerical discretization errors can be classified in two categories : 
+
+<img style="width:33%"  src="../figures/diss-error.png" >
+**dissipative errors affect the amplitude**
+
+
+<img style="width:33%"  src="../figures/disp-error.png" >
+**dispersion errors affect the phase of the solution**
+
+&nbsp;
+
+- numerical discretization errors may **propagate spatially** in the solution 
+
+- numerical discretization errors may **accumulate over time**
+
+&nbsp;
+
+.center[
+ after integration over long times, **numerical discretization errors can have complex patterns**.
+]
+
+---
+class: left
+#  Practical expression of errors in ocean model solution 
+
+.center[
+(Melet et al.)
+<img style="width:90%"  src="../figures/s-bias.png"> 
+]
+
+&nbsp;
+
+
+ - In practice, ocean model error manifest itself through the **time-mean state** of the model solution, its **trend** at its **variability** at all time scale.
+
+ - Model errors are also usually **correlated both in space and in time** (see above). 
+
+ - Model error is usually due to a combination of different factors
+
+---
+class: left
+#  Example 1 : the phase of mesoscale eddy variability 
+
+<img style="width:100%"  src="../figures/arbic2.png" >
+
+
+ - the phase of mesoscale variability is obvioulsy not predicted by forced, non-assimilated ocean models. 
+
+ - but implicitely, it is tempting to think that the phase of  mesoscale flow feature is not affecting too much the low frequency variability. 
+   
+ - Arbic et al. (2012) have shown that energy cascades in time too long time scale so that the phase of mesoscale may actually affect long time scales...
+---
+class: left
+#  Example 2: AMOC in forced ocean models
+
+<img style="width:100%"  src="../figures/behrens.png" >
+
+- A key prediction that is expected from ocean models is **how the atlantic meridional overturning circulation (AMOC) varies** in time. 
+
+- Behrens et al. (2013) have shown that although the interannual variability of the AMOC is rather predictable, **surface salinity restoring is a major control** of the decadal trend of AMOC.
+
+---
+class: left
+#  Multimodality of ocean states
+
+.center[
+<img style="width:80%"  src="../figures/pot-well.png" >]
+
+ - The **topology of the phase space of non-linear system** can be rather complicated, possible showing muliple possible local energy minima. 
+
+--
+
+ - Deshayes et al. (2013) found in a global model that the freshwater transport in the southern atlantic was such that the **AMOC  could be unstable to forcing perturbations**. *but can we trust this model prediction ?* 
+
+
+---
+class: center, middle
+
+# Part 3.
+# Probabilistic ocean modelling with ensemble simulations
+
+
+---
+class: left
+#  Ensemble simulation in data assimilation
+
+&nbsp;
+
+.center[
+<img style="width:80%"  src="../figures/ENKF.png" >
+]
+
+.center[
+Ensemble modelling is used in data assimilation for sampling the possible likely states of the system. 
+]
+---
+class: left
+#  Ensemble simulation in climate modelling
+
+<img style="width:100%"  src="../figures/cmip5-ensemble.png" >
+
+
+.center[
+Ensemble modelling is climate projections in order to reduce the uncertainty associated with spurious individual model bias/sensitivity. 
+]
+
+
+---
+class: left
+#  Intrinsic ocean chaos revealed by ensemble simulation 
+
+
+The OCCIPUT ensemble of global eddying ocean model solutions 
+
+.center[
+<img style="width:100%"  src="../figures/occiput.png" >]
+
+this set of simulation allows to investigate wjat fraction of oceanic variability is **governed by the atmosphere** versus the spontaneous **variability due to oceanic chaos**
+
+
+see the posters by **Stephanie Leroux** and **Ixetl Garcıa Gomez**. 
+
+---
+class: left
+#  Benefits of ensemble simulation 
+
+
+Ensemble modelling not only allows to tackles specific questions regarding oceanic variability but also : 
+
+--
+
+ - is a very good strategy in terms of HPC : ensemble runs avec 100% scallable ! 
+
+--
+ 
+ - more generally probabilistic ocean modelling (ensemble + stochastic) allow to combine nicely data driven and physics driven approaches (see later)
+
+--
+
+ - therefore allowing ocean modellers to discuss more happily with data assimilation experts. 
+
+--
+
+ - most importantly, ensemble modelling allows allows for a more objective comparison of model solutions with observations.
+
+--
+
+example :  Rank histograms and model reliability
+
+.center[
+<img style="width:90%"  src="../figures/rank.png" >]
+
+.center[ 
+the set of ensemble member  values  at  a  given  point  and  the  true state  ought to be able to be considered random samples from the same probability distribution.
+]
+
+
+
+
+---
+class: left
+#  A system approach to ocean modelling
+
+
+
+--
+
+<img style="width:100%"  src="../figures/system-multi-modality.png" >
+
+
+--
+
+ - dealing more objectively with **model uncertainty** through a combination of **ensemble and stochastic methods**
+
+--
+
+ - allowing to **explicitely sample  the distribution  of possible states** given explicitely formulated uncertainties (Bayesian approach)
+
+--
+.center[
+*arguably a paradigm shift in ocean circulation modelling ?* 
+]
+
+--
+
+ - but still unclear how to deal with the **daemon of dimensionality** (sampling a 10$^n$ degrees of freedom pdf with 50 members...)
+
+
+
+ 
+---
+class: center, middle
+
+# Part 4.
+# Towards data-driven ocean modelling
+
+
+---
+class: left
+#  The changing usage of geoscientific data
+
+
+ - as we all know the **flow of geoscientific data** is increasing at an accelerating rate
+
+--
+
+- this is true for **observational data** due to new satellite missions with increase downlink capacity, and evolution of in-situ networks. SWOT mission :  360 Mb/s versus 30kb/s for conventional altimeters
+
+--
+
+- this is also true for **model data** with increase model resolution at higher temporal sampling. Basin to global scale submesoscale permitting model produce 100s Tb of data. 
+
+--
+
+- sure, this implies that **in our scientific studies**, we use larger and larger dataset; 
+
+--
+
+- this also motivates the design innovative data-mining strategies and **data analysis pipelines**
+
+--
+
+- several scientific fields have experienced **strong paradigm shifts** due to similar transitions over the last 10 years : genomics, neurosciences, and arguably social sciences. 
+ 
+--
+
+&nbsp;
+
+.center[
+*Will the change in the flow of data we experience in geoscience  change the way how we produce knowledge in the future ?*
+]
+
+---
+class: left
+#  How do ocean modellers use observationnal data ? (1/2)
+
+
+&nbsp;
+
+&nbsp;
+
+--
+
+ - Observational data are used for constraining ocean model **initial states**. in practice, it is becoming more common to initialize models with ocean reanalysis (ex: NATL60) 
+
+--
+
+ - Observational data are used for constraining ocean model **forcing functions at the surface**; this is based on satellite data and atmospheric reanalysis data (not technically speaking observations)
+
+
+--
+
+ - after running their simulations, ocean modellers **assess their model solutions** with observational data; (how seriously they do it often depend on reviewers...)
+
+--
+
+-  Observational data may also be used **for designing subgrid closures** and/or **assessing the representation of physical processes** in ocean models. 
+
+
+
+--
+.center[
+**But overall, usages of observational data are pretty straighforward. **
+]
+
+
+---
+class: left
+#  How do ocean modellers use observational data ? (2/2)
+
+
+&nbsp;
+
+&nbsp;
+
+
+we can also observe the emergence of new usages which bridge from ocean modelling to data-assimilation : 
+ 
+--
+
+ - **parameters of subgrid closures** can be adjusted through with approaches from data assimilation (Wirth and verron)
+
+--
+ 
+ - the **parameters of bulk formulae** can be adjusted using observational data with data assimilation (Meinvielle et al.)
+  
+--
+
+ - **increments from data assimilation schemes** used in ocean reanalysis can be used for better understanding the origin and nature of ocean model bias. 
+
+--
+
+.center[
+**Arguably, ocean model design and usage is gradually using more methods comig from data science.**] 
+
+
+
+---
+class: left
+#  Data-driven design of subgrid scale closures 
+
+.center[
+<img style="width:75%"  src="../figures/vollant.png" >
+]
+
+ - Several groups in **fluid dynamics** have sucessfully designed SGS closures with data driven techniques, namely methods adapted to **find regularities and correlation in large datasets** : 
+ 
+    - Vollant et al (2017) : LES closures through machine-learning
+    - Ling et al. (2016) : RANS modelling using deep neural networks
+
+--
+
+ - some cloud micro-physics closures have already been designed from LES simulations using  data-driven approaches. 
+
+--
+
+ - There has been several attempts for designing SGS closures for ocean models with data-driven approaches, so far unsuccesfully.  
+
+
+---
+
+class: left
+#  Data-driven design of subgrid scale closures 
+
+
+.center[
+<img style="width:60%"  src="../figures/eddy-diff1.png" >
+]
+
+
+.right-column[
+
+.center[
+
+<img style="width:70%"  src="../figures/eddy-diff2.png" >
+]
+Consider the **eddy diffusivity** closure  
+
+ -   central to several of our closures
+ -   actually a statistical fit 
+ -   with a weak first principle basis...
+]
+
+--
+
+.left-column[
+<img style="width:100%"  src="../figures/correlation.jpg" >
+]
+
+---
+class: left
+#  Physics-driven versus data driven ocean model design ? 
+
+--
+
+
+&nbsp;
+
+<img style="width:100%"  src="../figures/Lipson2009-fig1.png" >
+
+ - data-driven techniques have be used for recovering the evolution equation of simple dynamical systems 
+
+--
+
+ - applied successsfully so far to low dimensional systems with perfect observations (Lipson 2009)
+
+--
+ 
+ - how / when would those techniques be applicable to high dimensional / imperfectly observed dyamical systems ? 
+ 
+---
+class: center, middle
+
+# Wrapping-up Lecture #3
+
+ 
+
+---
+class: left
+
+# Lecture #3
+## Towards data-driven, probabilistics ocean circulation models
+
+--
+
+Here we have
+
+--
+
+ -  illustrated several aspect of the ill-posed nature of deterministic geoscienctific modelling. 
+
+--
+
+ - shown (*said*) that **stochastic closures are a promising approach for reducing ocean circulation models bias**
+
+--
+
+ - shown that **stochastic modelling actually allows to generically deal with various sources of uncertainties** inherent to ocean models 
+
+--
+
+ - discussed how ensemble simulations can help **understanding the drivers of low frequency oceanic variability**
+
+--
+
+ - advocated that the **Bayesian framework** allows to consider  ocean circulation models for what they actually are, namely **probabilistic models of possible states of the ocean**. 
+
+--
+
+ - asked whether **ocean circulation model development** will be more **data-driven** in the future.
+
+
+
+
+
+---
+class: center, middle
+
+# Additional material
 
 
 ---
@@ -235,7 +808,22 @@ class: center, middle
 class: center, middle
 <img style="width:100%"  src="../figures/probabilistic.png" >
 
+---
+class: center, middle
+<img style="width:100%"  src="../figures/Ling2016-fig1.png" >
 
+---
+class: center, middle
+<img style="width:80%"  src="../figures/mattern2012-fig9.png" >
+
+---
+class: center, middle
+<img style="width:100%"  src="../figures/Lipson2009-fig1.png" >
+
+---
+class: center, middle
+
+# Additional material
 
    </textarea>
     <!-- This is the link to the local copy of Remark -->

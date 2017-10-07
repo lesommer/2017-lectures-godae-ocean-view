@@ -69,19 +69,24 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle
+
+class: middle,center
+<!---
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+--->
+
+<img src="../figures/Logo-School-GODAE.png" width="50%" halign="left" />
+
+&nbsp;
+
 
 .title[New frontiers in ocean circulation modelling]
 &nbsp;
 
-.subtitle[Lectures for GODAE OceanView internationnal school]
-&nbsp;
-
 &nbsp;
 &nbsp;
 &nbsp;
 
-&nbsp;
 .author[[Julien Le Sommer](http://lesommer.github.io/)]
 
 .institution[Institut des Géosciences de l'Environnement, CNRS, Grenoble, France]
@@ -91,7 +96,6 @@ class: center, middle
 &nbsp;
 &nbsp;
 
-.date[October, 2017]
 &nbsp;
 &nbsp;
 &nbsp;
@@ -101,48 +105,54 @@ class: center, middle
 <img src="../figures/logoCNRS.png" width="10%" halign="left" />
 --->
 
+
+<img src="../figures/affiliations-logo.png" width="30%" valign="left" />
+
+
+
 ---
 class: left
-#  About the course
+#  About the lectures
 &nbsp;
 
 --
-## Lecture #1 : Ocean circulations models : scope, usage and development.
+## Lecture #1 : Ocean circulations models : scope, usage and fundamentals.
 
- - Thursday: 10:00-11:30, room blabla
+ - Thursday: 11:45-12:30
 
-## Lecture #2 : Towards multi-resolution, multiphysics ocean models
+## Lecture #2 : Representation of physical processes ocean circulation models
 
- - Saturday: 10:00-11:30, room blabla
+ - Saturday: 9:45-10:30 
 
-## Lecture #3 : Towards data-driven, probabilistics ocean  models
+## Lecture #3 : Towards data-driven, probabilistic ocean circulation models
 
- - Saturday: 2:00pm-3:30pm, room blabla
+ - Saturday: 11:45-12:30 
 
 &nbsp;
 
-???
-Test notes
+
 
 --
 ## Slides of the lectures :
- [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
+also here : [https://github.com/lesommer/2017-lectures-godae-ocean-view](https://github.com/lesommer/2017-lectures-godae-ocean-view)
 
-## Book chapter :
- [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
+## Book chapter (with Eric Chassignet):
+also here : [https://github.com/lesommer/2017-book-chapter-godae-ocean-view](https://github.com/lesommer/2017-book-chapter-godae-ocean-view)
+
 
 
 ---
 class: left
-# Lecture #1 :
-## Ocean circulations models : scope, usage and development.
+# Lecture #1 
+## Ocean circulations models : scope, usage and fundamentals.
+
 
 
 &nbsp;
 
 ### Topics covered
 
- - brief history of ocean circulation models
+ - definition and scope of ocean circulation models
 
  - landscape of ocean circulation models.
 
@@ -152,85 +162,693 @@ class: left
 
  - boundaries, interfaces and forcings
 
- - vertical and horizontal disctetization
+ - discretizing the primitive equations
 
- - physically based subgrid closures
+ - illustrations of current status/skill
+
+---
+class: left
+
+# Lecture #1 
+## Ocean circulations models : scope, usage and fundamentals.
+
+*Ocean circulation models *
+
+
+ - are based on **first principle physics**;
+
+ - are used for a **wide range of applications**;
+
+ - are a key **building block of operational oceanography**;
+
+ - require **group effort and collaborations** over long time scales. 
+
+*We have also learned that :* 
+
+ - **subgrid closures are rate controling** components of ocean models; 
+
+ - **numerical discretization is a key** aspect of ocean circulation modelling; 
+
+ - besides the numerical kernel, **interfaces are also important** (forcing function, coupling interfaces, etc...)
+
+ - ocean models are now (arguably) **able to describe mesoscale motions at global scale**;  
+
+ - new frontier :  **submesoscale-permitting modelling at global scale**. 
+
+
+
 
 
 ---
 class: left
-# Lecture #2 :
-## Towards multi-resolution, multiphysics ocean circulation models
-
-
- ### Topics covered
-
-
-  - resolved physical processes, grid resolution, model precision and computational cost
-
-  - interfaces of ocean circulation models with other physical models : surface wave models, atmospheric models, non-hydrostatic models, lagrangian transport models, coastal models
-
-  - approaches to multiphysics : physical parameterizations, superparameterizations and coupling
-
-  - rationale of coupling ocean circulation models with surface waves models
-
-  - benefits and research questions on the coupling between ocean circulation models and atmospheric models
-
-  - approaches to multi-resolution : unstructured grids versus block structured grids, numerical issues associated with local grid refinements, time discretizations
-
-
-
----
-class: left,middle
 ## Outline of Lecture #2
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 
-## Part 1. Some basic concepts
 
-## Part 2. ??
+## Part 1. Resolved versus unresolved physics in ocean circulation models
 
-## Part 3. ??
 --
+
+## Part 2. Broadening the spectrum of resolved processes in ocean models
+
+--
+
+## Part 3. Accounting for unresolved processes through subgrid closures
+
+--
+
+## Part 4. Accounting for unresolved processes through model coupling
 
 ---
 class: center, middle
 
 # Part 1.
-# Basic concepts
+# Resolved versus unresolved physics in ocean models
 
 ---
 class: center
-#  Range of physical processes
+#  Space and time scales of major ocean physical processes
 
-<img style="width:90%"  src="../figures/Griffies-Treguier-fig5.1.1.png" >
-
-Here is a figure.
-
----
-class: center
-#  The notion of resolved physics
+<img style="width:50%"  src="../figures/scales-ocean-processes.jpg" >
 
 
-Here is a figure.
+Resolving space into regions of dimension $10^{-3}$m for an ocean with volume roughly $1.3 \,10^{18}$ m$^3$ requires $1.3\, 10^{27}$ discrete grid cells (roughly $10^4$ times larger than Avogadro’s number!) (*Griffies*).
 
----
-class: center
-#  The notion of effective resolution
+**a truncated description of the ocean state is required and will be required in the foreseable future.**
 
-
-Here is a figure.
 
 
 ---
 class: center
-<img style="width:90%"  src="../figures/FoxKemper.png" >
+#  Projection of the future evolution of model grid resolution
+
+<img style="width:70%"  src="../figures/FoxKemper.png" >
+
+--
+
+A large fraction of the **spectrum of oceanic variability will remain unresolved** in ocean circulation models in the foreseable future. 
+
+---
+class: center
+#  Ability of model grids to resolve mesoscale processes
+
+
+Horizontal resolution needed to resolve the first baroclinic deformation radius with grid points on a mercator grid (Hallberg et al. 2013).
+
+<img style="width:100%"  src="../figures/Hallberg-grid.png" >
+
+--
+
+Actual mesoscale permitting modelling at global scale may require 1/50° horizontal grid resolution...
+
+
+
+---
+class: left
+#  Practical constraints on model grid resolution
+
+&nbsp;
+
+--
+
+ - The overall computational cost of a system is indeed usually constrained by **available computing resources**
+
+--
+
+ - even **more so for operational applications** that ought to deliver near real time products.
+
+--
+
+ - but **grid resolution** of ocean model components of operational systems is also usually set for several years because of the effort required for :
+
+--
+ 
+ 	- tuning the physical model configuration, 
+
+--
+
+ 	- calibrating the data assimilation components 
+
+--
+
+ 	- preparing the downstream data production chains. 
+
+--
+
+- need for a **robust rationale** for designing optimally ocean model components of operational systems 
+
+--
+
+- understanding of **what controls the potential spectrum of resolved process** in ocean circulation models besides the model grid resolution
+
+---
+class: center
+#  The notion of effective resolution (1/2)
+
+--
+
+.left[
+practical **rule of thumb** : 
+
+"*a flow feature is resolved in a ocean model is that there should be no less than $2 \pi$ grid points spanning the feature*" (Griffies and Treguier 2013)
+]
+--
+
+.left[a more **quantitative approach** :
+
+*effective resolution : the smallest scale that is not significantly affected by numerical dissipation*
+]
+
+--
+
+.left-column[
+<img style="width:90%"  src="../figures/Skamarock-effective-resolution.png" >
+.center[Skamarock et al. (2004)]
+]
+
+--
+
+.right-column[
+
+<img style="width:120%"  src="../figures/Soufflet-KE.png" >
+.center[Soufflet et al. (2016)]
+]
+
+---
+class: center
+#  The notion of effective resolution (2/2)
+
+<img style="width:80%"  src="../figures/Soufflet-dissipation.png" >
+
+--
+
+The concept of effective resolution is valid for the **high resolution cases** and for **scale selective momentum closures** (Soufflet et al. 2016)
+
+--
+
+under such conditions, typical effective resolution are **about 6 to 10 dx**.
+
+---
+class: center, middle
+
+# Part 2. 
+# Broadening the spectrum of resolved processes
+
+---
+class: left
+#  Increasing effective resolution through numerical schemes 
+
+--
+
+ - as discussed above, the usual constraints in ocean model design are related to : **computational resources** and / or **grid resolution**.
+
+--
+
+ - a optimal choice of numerical discretization may allow
+
+--
+
+  - to **use resources more efficiently** and to increase grid resolution 
+
+--
+
+  - to **improve effective resolution** at a given grid resolution
+
+--
+
+ - The notion of **computational efficiency** refers to the **accuracy** of model solution relative to the **computational cost** of numerical integration. 
+
+--
+
+ - The current trend in ocean circulation models is to use **high order discretization schemes** because they usually are more computationaly efficient.
+
+
+--
+
+ - But **the accuracy and the stability** of model solution are also affected by the ability of ADEs to emulate the properties of the underlying PDEs (**mimetic properties** : conservation of enstrophy/energy, symmetries).
+
+--
+
+&nbsp;
+.center[
+in practise, need to **trade-off between mimetic prop. and order of accuracy**
+]
+
+
+---
+class: left
+#  Increasing effective resolution with multiscale modelling 
+
+&nbsp;
+
+ - Multiscale modelling methods, which allow to **locally refine the grid mesh**, are now commonly used in large scale ocean circulation modelling. 
+
+--
+
+- Applications of multiscale approaches in ocean circulation modelling can be classified according to their **grid mesh topology** into : 
+
+--
+
+	- **structured mesh methods** (eg. curvilinear grids), 
+
+.center[
+<img style="width:80%"  src="../figures/curv-structured-grid.png" >
+]
+
+---
+class: left
+#  Increasing effective resolution with multiscale modelling 
+
+&nbsp;
+
+ - Multiscale modelling methods, which allow to **locally refine the grid mesh**, are now commonly used in large scale ocean circulation modelling. 
+
+- Applications of multiscale approaches in ocean circulation modelling can be classified according to their **grid mesh topology** into : 
+
+	- **structured mesh methods** (eg. curvilinear grids), 
+
+	- **unstructured mesh methods** (eg. MPAS, FESOM) 
+
+.center[
+<img style="width:80%"  src="../figures/unstructured-grid.png" >
+]
+
+---
+class: left
+#  Increasing effective resolution with multiscale modelling 
+
+&nbsp;
+
+ - Multiscale modelling methods, which allow to **locally refine the grid mesh**, are now commonly used in large scale ocean circulation modelling. 
+
+- Applications of multiscale approaches in ocean circulation modelling can be classified according to their **grid mesh topology** into : 
+
+	- **structured mesh methods** (eg. curvilinear grids), 
+
+	- **unstructured mesh methods** (eg. MPAS, FESOM) 
+
+	- **block structured mesh methods** (eg. AGRIF). 
+
+
+.center[
+<img style="width:60%"  src="../figures/block-structured.png" >
+]
+
+---
+class: left
+#  Increasing effective resolution with multiscale modelling 
+
+&nbsp;
+
+ - Multiscale modelling methods, which allow to **locally refine the grid mesh**, are now commonly used in large scale ocean circulation modelling. 
+
+- Applications of multiscale approaches in ocean circulation modelling can be classified according to their **grid mesh topology** into : 
+
+	- **structured mesh methods** (eg. curvilinear grids), 
+
+	- **unstructured mesh methods** (eg. MPAS, FESOM) 
+
+	- **block structured mesh methods** (eg. AGRIF). 
+
+&nbsp;
+
+
+*Some open issues* : 
+
+- the design of robust **discretization schemes** for large-scale ocean models on triangular or hexagonal meshes is **still challenging** (Danilov 2013). 
+
+- it is still **unclear how to optimally use the potential for mesh refinement** and mesh adaptativity of multiscale modelling approaches in large scale ocean circulation models.
+
+
+---
+class: left
+#  Increasing effective resolution with improved usage of HPC
+
+--
+
+
+.center[
+<img style="width:50%"  src="../figures/chip.jpg" >
+
+*And what about using bigger computer for increasing model resolution ?* 
+
+]
+
+--
+
+
+ - The current trend in HPC is toward **massively parallel machines** with **heterogenous multicore architectures**. 
+
+--
+
+ - Over past decades, **computation have become cheaper** but **memory transfers are still expensive**
+
+--
+
+ - Although modern HPC platforms can deliver a peak **performance in the Petaflop/s range**, most of the existing ocean circulation models are yet **unable to exploit this potential**
+
+
+---
+class: left
+#  Increasing effective resolution with improved usage of HPC
+
+
+
+ - O(10M) machine now exist (ex : Sunway TaihuLight), but the **scalability of ocean circulation models is curently limited to O(10k) cores** : 
+
+--
+ 
+   - by the **single core** performance of stencil operations (typical of discretized PDEs)
+
+--
+
+   -  by the communication overhead, load imbalance and latency inherent to **spatial domain decomposition** 
+ 
+--
+
+   -  by **memory access** associated with I/O. 
+
+--
+
+*Ways forward ?* : 
+
+--
+
+ - more hybrid parallel programming in order to **exploit more efficiently memory hierarchy** 
+
+--
+
+.left-column[
+
+ -  **innovative algorithms** for solving our PDEs : eg.  parallelisation in time  (eg : Parareal algorithm)
+
+- this will require intense **collaboration between ocean modellers and computer scientists**
+]
+
+.right-column[
+<img style="width:110%"  src="../figures/Parareal.png" >
+]
+
+---
+class: center, middle
+
+# Part 3. 
+# Accounting for unresolved processes through subgrid scale closures
+
+---
+class: left
+#  Nonlinearity and subgrid scale closures
+
+
+
+Primitive equation (PDEs)
+`$$
+\large\partial_t \mathbf{s} + \mathcal{L} \,\mathbf{s} + \mathcal{N} (\, \mathbf{s}) = 0$$`
+
+--
+
+Approximated primitive equations (ADEs)
+
+`$$
+\large\partial_t \overline{\mathbf{s}} + \mathcal{L} \,\overline{\mathbf{s}} + \mathcal{N} (\, \overline{\mathbf{s}}) = \mathcal{N} (\, \overline{\mathbf{s}}) - \overline{\mathcal{N}(\mathbf{s})} $$`
+
+where : 
+
+ - $\mathbf{s}$ is the ocean state vector
+
+ - $\overline{\mathbf{s}}$ is the resolved state vector
+
+--
+
+The **SGS closure problem** :  estimating a good model $\mathcal{M} (\, \overline{\mathbf{s}}) = \mathcal{N} (\, \overline{\mathbf{s}}) - \overline{\mathcal{N}(\mathbf{s})}$
+
+--
+
+*Caveats* : 
+
+-  it is not that easy to know how to relate  $\mathbf{s}$ and $\overline{\mathbf{s}}$. 
+
+- it is usually assumed that $\overline{\mathbf{s}}$ is an averaged version of $\mathbf{s}$,  but what average ? 
+
+- assuming that $\mathcal{M}$ is deterministic is  strong assumption
+
+---
+class: left
+#  Approaches to designing subgrid scale closures (1/2)
+
+--
+
+ - $\mathcal{N} (\, \overline{\mathbf{s}}) - \overline{\mathcal{N}(\mathbf{s})}$ contains a lots of terms involving a lot of different correlations among $u,v,w, T, S$
+
+--
+
+ - The general approach is **not to focus on particular nonlinear terms** in the primitive equations but rather on **particular physical processes** (that may affect several terms)
+
+--
+
+ - A rough classification of unresolved physical processes could be : 
+
+  - SGS closures for **balanced turbulence** (eddy closure)
+  - SGS closures for **processes in the Ocean Surface Boundary Layer**
+  - SGS closures for **interior mixing processes**
+  - SGS closures for **Bottom Boundary layer processes**
+
+--
+
+ - the design of SGS closures associated with physical processes usually involves : 
+
+   - idealized process studies with models
+   - realistic process studies with models
+   - targeted field experiments at sea
+   - lab experiments (probably more rarely now)
+    
+--
+
+ - importantly, a SGS closure should always **target a particular ocean circulation model resolution** because the information at resolved scale depends on the model resolution. 
+ 
+
+---
+class: left
+#  Approaches to designing subgrid scale closures (2/2)
+
+
+&nbsp;
+
+ - Depending the available information from the scales assumled to be resolved in the target model, two categories of closures can be distinguished 
+ 
+--
+ 
+ 	-  **RANS-type** (cf Reynolds average), implicitely based on some sort of *ensemble average*, (in practice emulated through time average); example : Gent-McWilliams closure for mesoscale eddy transport
+ 
+--
+ 
+ 	-  **LES type** (by analogy to Large Eddy Simulation) implicitely based on some *spatial average*; example : Leith momentum closure
+ 
+--
+ 
+ - LES-type subgrid closures can further be categorized as such 
+ 
+--
+ 
+   - **functional closures** consider the bulk action of the subgrid terms on the resolved scales. example : Smagorinsly momentum closure
+
+--
+
+   - **structural closures** aim at estimating the best local approximation of the unknown SGS term by constructing it from the known structure of small-scale. example : closures defined by Taylor series expansion. 
+ 
+
+
+---
+class: left
+#  Example : the case for eddy energy backscatter (1/2)
+
+.left-column[
+<img style="width:100%"  src="../figures/thuburn1.png" >]
+
+.left-column[
+&nbsp;
+
+In two-dimensional turbulence, both energy and enstrophy are conserved :   
+.center[
+<img style="width:70%"  src="../figures/thuburn-eqs.png" >]
+
+&nbsp;
+
+
+]
+
+ - 
+
+ - remind that in 2D turbulence, **energy is transfered to large scales while enstrophy is transfered to small scale**. 
+ 
+ - so in numerical simulation, **unresolved scale may exchange energy and enstrophy with resolved scales**
+
+
+
+---
+class: left
+#  Example : the case for eddy energy backscatter (2/2)
+
+<img style="width:100%"  src="../figures/thuburn2.png" >
+
+--
+
+ - Thurburn (2013) has made the case for **the need to take into account the backscatter of energy**: 
+
+--
+
+ - showing in particular **biharmonic viscosity is not accounting for this effect**. 
+
+--
+
+ - this has motivated the development of a number of different **closures for primitive equation models** 
+
+
 
 
 ---
 class: center, middle
-<img style="width:100%"  src="../figures/mesh-refinements.png" >
 
+# Part 3. 
+# Accounting for unresolved processes through model coupling
+
+
+
+---
+class: left
+#  Because, sometimes the best closure is a third party model...
+
+
+&nbsp;
+
+--
+
+- certains physical processes that are not accounted for in ocean models have received a lot of attention from neighboring scientific community (e.g wave modelling)
+
+--
+
+- it may also happen that it is essential estimating the subgrid state associated with certain unresolved processes require to take into account non-local effects in space and time (eg. propagation and dissipation of internal waves, cf IDEMIX)
+
+--
+
+- it may also make sense to modularize as much as possible a *complex* closure so that it can be used in different models, therefore becoming an independant model perse (eg. CVMIX)
+
+--
+
+- in all the above case, ocean modellers are actually representing missig processes by coupling their ocean circulation models to third party process models.  
+
+
+
+
+---
+class: left
+#  Example 1: Superparameterization of deep convection. 
+
+<img style="width:90%"  src="../figures/campin2.png" >
+
+Capmpin et al. (2013) have proposed to embed 2Dz non-hydrostatic models with an hydrostatic PE model in order to inprove the representation of the transport due to deep convective plumes. 
+
+---
+class: left
+#  Example 1: Superparameterization of deep convection. 
+
+<img style="width:90%"  src="../figures/campin4.png" >
+
+Campin et al. (2013)'s approach improves substancially the change in T, S in unstable condition with respect to classical convective adjustment scheme
+
+
+
+---
+class: left
+#  Example 2: Coupling circulation models with wave models. 
+
+Global Distribution of Annual Wave Power Flux from WW3 Model (kW/m)
+
+.center[
+<img style="width:70%"  src="../figures/WW3.png" >
+]
+
+- surface wave affect OSBL processes in various ways : mixing, langmuir turbulence, air-sea fluxes, stokes drift...
+
+- ocean surface waves are strongly affected by ocean currents;  
+
+- mature surface wave models exist because of the importance of wave forecasting for operations at sea;
+
+- adequately accounting for the impact of surface waves on ocean circulation  in models requires to couple circulation models with wave models
+
+---
+class: left
+# Side remark : implication for operational centers. 
+
+
+&nbsp;
+
+
+--
+
+ - using **coupling** among models for **accounting for unresolved processes** is likely to become more freqeuent as our knowledge of unresolved processes progresses in the future. 
+
+--
+
+ - an other area where this could occur concerns for instance the **representation fine scale atmosphere ocean feedbacks** for submesoscale permitting models. 
+
+--
+
+ - specific **data assimilation methods will be needed** for constraining simultaneously several independant model components in operational systems with data assimilation. 
+
+--
+
+ - more generally, this relates to the **question of the increasing complexity of operational systems** in the future.  
+ 
+
+
+
+---
+class: center, middle
+
+# Wrapping-up Lecture #2
+
+
+---
+class: left
+
+# Lecture #2
+## Representation of physical processes ocean circulation models
+
+--
+
+ - ocean circulation models are **continuously increasing the range of physical processes** they account for; 
+
+--
+ 
+ -  but defining objectively **what fraction of ocean variability is adequately represented** in ocean model solution is difficult; 
+
+--
+
+ - the **notion of effective resolution** is a simple (simplistic ?) concept that serves as a rationale for separating resolved and unresolved scales in ocean models; 
+
+--
+
+ - Interaction with **computer scientist and applied mathematicians will be essential** to further increasing the range of scale resolved in ocean models (schemes, HPC, ...)
+
+
+--
+ 
+  - the design of **SGS closures is a key activity** of ocean model design but (1) this is not an easy task (2) the problem is not that well posed (average ?, LES, RANS ? ) 
+
+  
+--
+ 
+  - the **coupling with third party models** is likely to become a natural way for ocean circulation model to account for certain classes of physical processes
+
+  
+  
 
 
    </textarea>
